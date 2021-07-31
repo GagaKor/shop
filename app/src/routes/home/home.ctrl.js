@@ -7,8 +7,13 @@ const output = {
 };
 
 const process = {
-  sendData: (req, res) => {
-    console.log(req.body);
+  sendData: async (req, res) => {
+    const data = {
+      result: true,
+      data: req.body,
+    };
+    console.log(data);
+    res.json(data);
   },
 };
 
