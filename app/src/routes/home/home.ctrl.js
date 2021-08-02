@@ -1,5 +1,7 @@
 "ues strict";
 
+const Shop = require("../../models/Shop");
+
 const output = {
   home: (req, res) => {
     res.render("home/index");
@@ -8,12 +10,10 @@ const output = {
 
 const process = {
   sendData: async (req, res) => {
-    const data = {
-      result: true,
-      data: req.body,
-    };
-    console.log(data);
-    res.json(data);
+    const shop = new Shop(req.body);
+    const response = await shop.insert();
+    console.log(response);
+    res.json(response);
   },
 };
 

@@ -1,8 +1,9 @@
 "ues strict";
 
 const express = require("express");
+const dotenv = require("dotenv");
 const app = express();
-
+dotenv.config();
 const hoem = require("./src/routes/home");
 
 app.set("views", "./src/views");

@@ -23,8 +23,11 @@ function insert() {
   })
     .then((res) => res.json())
     .then((res) => {
-      if (res.result) alert("등록 성공");
-      else alert("다시 시도해 주세요");
+      console.log(res);
+      if (res.success) {
+        alert("등록 성공");
+        console.log(res);
+      } else alert("다시 시도해 주세요");
     })
     .catch((err) => {
       console.error(err + "실패!!");
