@@ -6,6 +6,11 @@ const output = {
   home: (req, res) => {
     res.render("home/index");
   },
+  getList: async (req, res) => {
+    const shop = new Shop();
+    const response = await shop.getAll();
+    res.json(response);
+  },
 };
 
 const process = {

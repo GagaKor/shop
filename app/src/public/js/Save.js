@@ -33,3 +33,22 @@ function insert() {
       console.error(err + "실패!!");
     });
 }
+
+function getAll() {
+  fetch("/getList", {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  })
+    .then((res) => res.json())
+    .then((res) => {
+      console.log(res);
+      if (res.success) {
+        console.log("res : " + res);
+      } else console.log("err");
+    })
+    .catch((err) => {
+      console.error(err + "실패!!");
+    });
+}

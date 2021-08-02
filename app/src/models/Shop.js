@@ -10,8 +10,16 @@ class Shop {
   async insert() {
     const data = this.body;
     try {
-      const memberId = 1;
-      const response = await shopStorage.save(data, memberId);
+      const response = await shopStorage.save(data);
+      return response;
+    } catch (err) {
+      return { success: false, err };
+    }
+  }
+
+  async getAll() {
+    try {
+      const response = await shopStorage.getAll();
       return response;
     } catch (err) {
       return { success: false, err };
