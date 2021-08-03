@@ -1,8 +1,10 @@
 "use strict";
 
+const ItemStorage = require("./ItemStorage");
+
 class Item {
   constructor(body) {
-    body = this.body;
+    this.body = body;
   }
 
   async insert() {

@@ -6,7 +6,7 @@ class ItemStorage {
   static async save(item) {
     return new Promise((resolve, reject) => {
       const query =
-        "INSERT INTO ShopItem(shop_id, item_name, item_description, item_price, item_title)";
+        "INSERT INTO ShopItem(shop_id, item_name, item_description, item_price, item_title) VALUES(?,?,?,?,?)";
       db.query(
         query,
         [

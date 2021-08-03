@@ -14,7 +14,7 @@ function insert() {
     shop_location: shop_location.value,
   };
 
-  fetch("/sendData", {
+  fetch("/saveShop", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

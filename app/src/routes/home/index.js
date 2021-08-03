@@ -8,6 +8,7 @@ const ctrl = require("./home.ctrl");
 router.get("/", ctrl.output.home);
 router.get("/getList", ctrl.output.getList);
 
-router.post("/sendData", ctrl.process.sendData);
+router.post("/saveShop", ctrl.process.saveShop);
+router.post("/saveItem", ctrl.process.saveItem);
 
 module.exports = router;

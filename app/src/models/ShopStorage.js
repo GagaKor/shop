@@ -1,13 +1,12 @@
 "use strict";
 
-const { data } = require("../../../../TODOAPP/app/src/config/logger");
 const db = require("../config/db");
 
 class ShopStorate {
   static async save(shopInfo) {
     return new Promise((resolve, reject) => {
       const query =
-        "INSERT INTO Shop(memberId ,shop_name, shop_description, shop_location)values(?,?,?,?)";
+        "INSERT INTO Shop(memberId ,shop_name, shop_description, shop_location)VALUES(?,?,?,?)";
       db.query(
         query,
         [

@@ -1,6 +1,8 @@
 "ues strict";
 
 const Shop = require("../../models/Shop");
+const Item = require("../../models/Item");
+const ItemImage = require("../../models/ItemImage");
 
 const output = {
   home: (req, res) => {
@@ -14,11 +16,24 @@ const output = {
 };
 
 const process = {
-  sendData: async (req, res) => {
+  saveShop: async (req, res) => {
     const shop = new Shop(req.body);
     const response = await shop.insert();
     console.log(response);
     res.json(response);
+  },
+  saveItem: async (req, res) => {
+    console.log(req.body);
+    const item = new Item(req.body);
+    const itemImg = new ItemImage(req.body);
+    const response = await item.insert();
+    if (response.success) {
+      response = await itemImg.insert();
+      res.json(response);
+    } else {
+      response.success = { success: false };
+      res.json(response);
+    }
   },
 };
 
