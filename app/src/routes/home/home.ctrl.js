@@ -25,15 +25,8 @@ const process = {
   saveItem: async (req, res) => {
     console.log(req.body);
     const item = new Item(req.body);
-    const itemImg = new ItemImage(req.body);
     const response = await item.insert();
-    if (response.success) {
-      response = await itemImg.insert();
-      res.json(response);
-    } else {
-      response.success = { success: false };
-      res.json(response);
-    }
+    res.json(response);
   },
 };
 
