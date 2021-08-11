@@ -13,6 +13,12 @@ const output = {
     const response = await shop.getAll();
     res.json(response);
   },
+
+  deleteShop: async (req, res) => {
+    const id = req.body;
+    const response = await shop.delete(id);
+    res.json(response);
+  },
 };
 
 const process = {

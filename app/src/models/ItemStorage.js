@@ -31,7 +31,7 @@ class ItemStorage {
       if (item_id) {
         const query_3 = "INSERT INTO ItemImage(item_id, img_url) VALUES(?,?)";
         await conn.query(query_3, [item_id, item.img_url], (err) => {
-          console.log("Err" + err);
+          console.log("Err : " + err);
         });
         await conn.commit();
       } else {
@@ -41,7 +41,7 @@ class ItemStorage {
       return { success: true };
     } catch (err) {
       await conn.rollback();
-      console.log("err@@@@@@@@" + err);
+      console.log("err : " + err);
     }
     await conn.end();
   }

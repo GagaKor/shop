@@ -16,6 +16,14 @@ class Shop {
       return { success: false, err };
     }
   }
+  async delete(id) {
+    try {
+      const response = await shopStorage.delete(id);
+      return response;
+    } catch (err) {
+      return { success: false, err };
+    }
+  }
 
   async getAll() {
     try {

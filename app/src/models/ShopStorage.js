@@ -19,6 +19,16 @@ class ShopStorate {
     }
   }
 
+  static async delete(id) {
+    try {
+      const query = "DLETE FROM Shop WHERE id = ?";
+      const result = await db.query(query, [id]);
+      if (result) return { success: true };
+    } catch (err) {
+      return { success: false, err };
+    }
+  }
+
   static async getAll() {
     const query = "SELECT * FROM Shop";
     const result = db.query(query);
