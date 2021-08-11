@@ -20,7 +20,7 @@ class Shop {
   async getAll() {
     try {
       const response = await shopStorage.getAll();
-      return response;
+      return response[0];
     } catch (err) {
       return { success: false, err };
     }

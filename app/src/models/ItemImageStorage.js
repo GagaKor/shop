@@ -4,12 +4,13 @@ const db = require("../config/db");
 
 class ItemImageStorage {
   static async save(imgInfo) {
-    const query = "INSERT INTO (item_id, img_url) VALUESE(?,?)";
-    db.query(query, [imgInfo.item_id, imgInfo.img_url], (err) => {
-      if (err) reject(`${err}`);
-      else resolve({ success: true });
-    });
+    try {
+      const query = "INSERT INTO ItemImage(item_id, img_url) VALUES(?,?)";
+      const result = await db.query(query, [imgInfo.item_id, imgInfo.img_url]);
+      if (result) return { success: true };
+    } catch (err) {
+      return { success: true, err };
+    }
   }
 }
-
 module.exports = ItemImageStorage;
