@@ -13,7 +13,15 @@ class Item {
       const response = await ItemStorage.save(item);
       return response;
     } catch (err) {
-      return { seccess: false, err };
+      return { success: false, err };
+    }
+  }
+  async delete(id) {
+    try {
+      const response = await ItemStorage.delete(id);
+      return response;
+    } catch (err) {
+      return { success: false, err };
     }
   }
 }

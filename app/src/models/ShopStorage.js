@@ -21,7 +21,7 @@ class ShopStorate {
 
   static async delete(id) {
     try {
-      const query = "DLETE FROM Shop WHERE id = ?";
+      const query = "DELETE FROM Shop WHERE id = ?";
       const result = await db.query(query, [id]);
       if (result) return { success: true };
     } catch (err) {

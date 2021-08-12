@@ -22,7 +22,7 @@ class ItemStorage {
           if (err) console.log("Err" + err);
         }
       );
-      const query_2 = "SELECT * FROM ShopItem order by id desc limit 1 ";
+      const query_2 = "SELECT * FROM ShopItem ORDER BY id DESC limit 1 ";
 
       let item_id;
       await conn.query(query_2).then((res) => {
@@ -44,6 +44,15 @@ class ItemStorage {
       console.log("err : " + err);
     }
     await conn.end();
+  }
+  static async delete(id) {
+    try {
+      const query = "DELETE FROM ShopItem WHERE id = ?";
+      const result = await db.query(query, [id]);
+      if (result) return { success: true };
+    } catch (err) {
+      return { success: false, err };
+    }
   }
 }
 module.exports = ItemStorage;

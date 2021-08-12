@@ -6,11 +6,19 @@ class ItemImage {
   constructor(body) {
     this.body = body;
   }
-
   async insert() {
-    const imgUrl = this.body;
+    const img = this.body;
     try {
-      const response = await itemImageStorage.insert();
+      const response = await itemImageStorage.insert(img);
+      return response;
+    } catch (err) {
+      return { success: false, err };
+    }
+  }
+
+  async delete(id) {
+    try {
+      const response = await itemImageStorage.delete(id);
       return response;
     } catch (err) {
       return { success: false, err };
